@@ -1,0 +1,164 @@
+@use "../../../variables";
+
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 1.5rem;
+    text-indent: -9999px;
+    background-size: contain;
+  }
+
+  .navigation {
+    .open-menu-btn {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-right: 1.5rem;
+      @include variables.icons-background;
+    }
+
+    .menu {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: -15.875rem;
+      width: 15.875rem;
+      padding: 7.375rem 2rem;
+      -webkit-backdrop-filter: blur(81.5485px);
+      backdrop-filter: blur(81.5485px);
+      transition: right 300ms ease-out;
+
+      &.open {
+        right: 0;
+
+        .close-menu-btn {
+          position: absolute;
+          top: 2.125rem;
+          right: 1.5rem;
+          width: 1.1875rem;
+          height: 1.1875rem;
+          @include variables.icons-background;
+        }
+      }
+
+      .menu-list {
+        gap: 2rem;
+
+        .link {
+          position: relative;
+          padding: 1rem 0;
+          @include variables.nav-text;
+          font-weight: 400;
+          color: variables.$neutral;
+          text-transform: uppercase;
+
+          &::after {
+            position: absolute;
+            bottom: 0;
+            display: block;
+            content: " ";
+            width: 100%;
+          }
+
+          &:hover::after {
+            border-bottom: 3px solid variables.$neutralOp50;
+          }
+
+          &.active::after {
+            border-bottom: 3px solid variables.$neutral;
+          }
+
+          .link-number {
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    .logo {
+      width: 3rem;
+      height: 3rem;
+      margin: 1.5rem 2.4375rem;
+    }
+
+    .navigation {
+      padding: 0;
+
+      .open-menu-btn {
+        display: none;
+      }
+
+      .menu {
+        display: flex;
+        align-items: center;
+        position: static;
+        width: max-content;
+        height: 6.125rem;
+        padding: 0 3rem;
+        transition: none;
+
+        &.open {
+          .close-menu-btn {
+            display: none;
+          }
+        }
+
+        .menu-list {
+          flex-direction: row;
+          gap: 2.625rem;
+
+          .link {
+            padding: 2.4375rem 0;
+            @include variables.nav-text;
+            font-weight: 400;
+            color: variables.$neutral;
+            text-transform: uppercase;
+
+            .link-number {
+              display: none;
+              font-weight: 700;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .header {
+    .logo {
+      margin: 4rem 3.4375rem;
+    }
+
+    .navigation {
+      .menu {
+        padding: 0 10.3125rem 0 7.6875rem;
+
+        .menu-list {
+          gap: 3rem;
+
+          .link {
+            .link-number {
+              display: inline;
+              font-weight: 700;
+            }
+          }
+        }
+      }
+    }
+  }
+}
