@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import "./destination.scss";
 
 const Destination = ({ setActivePage }) => {
-  useEffect(() => setActivePage("Destination"));
+  useEffect(() => setActivePage("Destination"), []);
 
   return (
     <main className='destination'>
