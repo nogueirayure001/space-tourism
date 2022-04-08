@@ -1,8 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
+import { PageContext } from "../../../contexts";
 import "./destination.scss";
 
 const Destination = ({ setActivePage }) => {
-  useEffect(() => setActivePage("Destination"), []);
+  const page = useContext(PageContext);
+  useEffect(() => page.setPageName("Destination"), []);
 
   return (
     <main className='destination'>

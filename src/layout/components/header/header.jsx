@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useContext } from "react";
+import { PageContext } from "../../../contexts";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/shared/logo.svg";
 import openMenuIcon from "../../../assets/shared/icon-hamburger.svg";
@@ -7,8 +9,9 @@ import List from "../list/list";
 import Button from "../button/button";
 import "./header.scss";
 
-const Header = ({ activePage }) => {
+const Header = () => {
   const [isMenuOpen, setMenuVisibility] = useState(false);
+  const page = useContext(PageContext);
 
   const logoStyle = { backgroundImage: `url(${logo})` };
   const openMenuStyle = { backgroundImage: `url(${openMenuIcon})` };
@@ -25,7 +28,7 @@ const Header = ({ activePage }) => {
   const listItems = links.map((link) => {
     return (
       <Link
-        className={`link ${link.title === activePage ? "active" : ""}`}
+        className={`link ${link.title === page.name ? "active" : ""}`}
         to={link.path}
       >
         <span className='link-number'>{link.id}</span> {link.title}
