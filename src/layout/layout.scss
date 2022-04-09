@@ -1,27 +1,12 @@
 @use "../variables.scss";
 
 .layout {
-  height: 100%;
+  display: flex;
+  height: max-content;
+  min-height: 100%;
   background-color: variables.$primary;
 
   .content {
-    height: 100%;
-    padding: 5.5rem 0 0 0;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .layout {
-    .content {
-      padding: 6.125rem 0 0 0;
-    }
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .layout {
-    .content {
-      padding: 11rem 0 0 0;
-    }
+    flex: 1 1 auto;
   }
 }

@@ -1,77 +1,40 @@
 // colors
-$primary: rgb(11, 13, 26);
-$secondary: rgb(208, 214, 249);
-$neutral: rgb(255, 255, 255);
+$primary: #0b0d17;
+$secondary: #d0d6f9;
+$neutral: #ffffff;
 $neutralOp50: rgba(255, 255, 255, 50%);
 
 //typography
-@mixin heading-1 {
-  font-family: "Bellefair";
-  font-weight: 400;
-  font-size: 150px;
-  line-height: 172px;
+@mixin bellefair($size, $weight, $height) {
+  font-family: "Bellefair", serif;
+  font-size: #{$size}rem;
+  font-weight: $weight;
+  line-height: $height;
 }
 
-@mixin heading-2 {
-  font-family: "Bellefair";
-  font-weight: 400;
-  font-size: 100px;
-  line-height: 115px;
-}
-
-@mixin heading-3 {
-  font-family: "Bellefair";
-  font-weight: 400;
-  font-size: 56px;
-  line-height: 64px;
-}
-
-@mixin heading-4 {
-  font-family: "Bellefair";
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 37px;
-}
-
-@mixin heading-5 {
+@mixin barlow-c($size, $weight, $height) {
   font-family: "Barlow Condensed", sans-serif;
-  font-weight: 400;
-  font-size: 28px;
-  line-height: 34px;
+  font-size: #{$size}rem;
+  font-weight: $weight;
+  line-height: $height;
 }
 
-@mixin sub-heading-1 {
-  font-family: "Bellefair";
-  font-weight: 400;
-  font-size: 28px;
-  line-height: 32px;
-}
-
-@mixin sub-heading-2 {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-}
-
-@mixin nav-text {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-  letter-spacing: 2.7px;
-}
-
-@mixin body-text {
-  font-family: "Barlow";
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 32px;
+@mixin barlow($size, $weight, $height) {
+  font-family: "Barlow", sans-serif;
+  font-size: #{$size}rem;
+  font-weight: $weight;
+  line-height: $height;
 }
 
 // others
 @mixin icons-background {
   background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@mixin image-background {
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }

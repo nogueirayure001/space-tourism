@@ -1,4 +1,125 @@
+@use "../../../variables.scss";
+
 .home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   height: 100%;
-  background-color: #fff;
+  padding: 7rem 1.5rem 3rem;
+  text-align: center;
+  background-image: url(../../../assets/home/background-home-mobile.jpg);
+  @include variables.image-background;
+
+  .text {
+    max-width: 28.125rem;
+    color: variables.$neutral;
+
+    & *:last-child {
+      margin-top: 1rem;
+    }
+
+    .title {
+      &--little {
+        @include variables.barlow-c(1, 400, 1.2);
+        letter-spacing: 0.16875rem;
+      }
+
+      &--big {
+        @include variables.bellefair(5, 400, 1.25);
+      }
+    }
+
+    .paragraph {
+      @include variables.barlow(0.9375, 400, 1.6667);
+    }
+  }
+
+  .explore-btn {
+    width: 9.375rem;
+    height: 9.375rem;
+    border-radius: 50%;
+    margin-top: 5.0625rem;
+    @include variables.bellefair(1.25, 400, 1.2);
+    color: variables.$primary;
+    letter-spacing: 0.078125rem;
+    background-color: variables.$neutral;
+
+    a {
+      display: block;
+      border: 5px solid red;
+      width: 100%;
+      height: 100%;
+      vertical-align: middle;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .home {
+    padding: 12.625rem 1.5rem 5.625rem;
+    background-image: url(../../../assets/home/background-home-tablet.jpg);
+
+    .text {
+      & *:last-child {
+        margin-top: 1.5rem;
+      }
+
+      .title {
+        &--little {
+          @include variables.barlow-c(1.25, 400, 1.2);
+          letter-spacing: 0.2109375rem;
+        }
+
+        &--big {
+          @include variables.bellefair(9.375, 400, 1);
+        }
+      }
+
+      .paragraph {
+        @include variables.barlow(1, 400, 1.75);
+      }
+    }
+
+    .explore-btn {
+      width: 15.125rem;
+      height: 15.125rem;
+      margin-top: 9.75rem;
+      @include variables.bellefair(2, 400, 1.2);
+      letter-spacing: 0.125rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .home {
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 12.625rem 10.3135rem 8.1875rem;
+    background-image: url(../../../assets/home/background-home-desktop.jpg);
+
+    .text {
+      text-align: left;
+
+      .title {
+        &--little {
+          @include variables.barlow-c(1.75, 400, 1.2);
+          letter-spacing: 0.2953125rem;
+        }
+
+        &--big {
+          @include variables.bellefair(9.375, 400, 1.15);
+        }
+      }
+
+      .paragraph {
+        @include variables.barlow(1.125, 400, 1.78);
+      }
+    }
+
+    .explore-btn {
+      width: 17.125rem;
+      height: 17.125rem;
+    }
+  }
 }
