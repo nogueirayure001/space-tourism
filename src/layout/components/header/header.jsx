@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useContext } from "react";
+import { useState, useContext, useEffect, useRef } from "react";
 import { PageContext } from "../../../contexts";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/shared/logo.svg";
@@ -12,11 +11,23 @@ import "./header.scss";
 const Header = () => {
   const [isMenuOpen, setMenuVisibility] = useState(false);
   const page = useContext(PageContext);
+  const menu = useRef(null);
+
+  const handleClickOutside = (e) => {
+    if (!menu.current.contains(e.target) && isMenuOpen) {
+      setMenuVisibility(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("click", handleClickOutside);
+
+    return () => window.removeEventListener("click", handleClickOutside);
+  });
 
   const logoStyle = { backgroundImage: `url(${logo})` };
   const openMenuStyle = { backgroundImage: `url(${openMenuIcon})` };
   const closeMenuStyle = { backgroundImage: `url(${closeMenuIcon})` };
-  const menuClassName = `menu ${isMenuOpen ? "open" : ""}`;
 
   const links = [
     { id: "00", title: "Home", path: "/" },
@@ -46,7 +57,7 @@ const Header = () => {
         Homepage
       </Link>
 
-      <nav className='navigation'>
+      <nav className='navigation' ref={menu}>
         <Button
           extraClass='open-menu-btn'
           style={openMenuStyle}
@@ -54,7 +65,7 @@ const Header = () => {
           title='open menu'
         />
 
-        <section className={menuClassName}>
+        <section className={`${isMenuOpen ? "open" : ""} menu`}>
           <List listItems={listItems} extraClass='menu-list' />
 
           <Button
