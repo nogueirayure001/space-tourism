@@ -1,0 +1,28 @@
+@use "../../../variables.scss";
+
+.page-title {
+  margin-bottom: 2rem;
+  @include variables.barlow-c(1, 400, 1.2);
+  letter-spacing: 0.16875rem;
+  color: variables.$neutral;
+
+  .title-number {
+    margin-right: 1.125rem;
+    opacity: 25%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .page-title {
+    align-self: flex-start;
+    margin-bottom: 3.75rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .page-title {
+    margin-bottom: 0;
+    @include variables.barlow-c(1.75, 400, 1.2);
+    letter-spacing: 0.295rem;
+  }
+}

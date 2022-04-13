@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { PageContext } from "../contexts";
+import { PageContext, DataContext } from "../contexts";
 import { Outlet } from "react-router-dom";
 import Header from "./components/header/header";
+import data from "../data.json";
 import "./layout.scss";
 
 const Layout = () => {
@@ -16,9 +17,11 @@ const Layout = () => {
       <div className='layout'>
         <Header />
 
-        <div className='content'>
-          <Outlet />
-        </div>
+        <DataContext.Provider value={data}>
+          <div className='content'>
+            <Outlet />
+          </div>
+        </DataContext.Provider>
       </div>
     </PageContext.Provider>
   );

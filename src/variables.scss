@@ -2,7 +2,8 @@
 $primary: #0b0d17;
 $secondary: #d0d6f9;
 $neutral: #ffffff;
-$neutralOp50: rgba(255, 255, 255, 50%);
+$neutralOp50: #ffffff80;
+$details: #383b4b;
 
 //typography
 @mixin bellefair($size, $weight, $height) {

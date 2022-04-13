@@ -1,3 +1,137 @@
+@use "../../../variables.scss";
+
 .destination {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   height: 100%;
+  padding: 5.5rem 1.5rem 3.625rem;
+  background-image: url(../../../assets/destination/background-destination-mobile.jpg);
+  @include variables.image-background;
+
+  .column-1 {
+    width: 50%;
+    margin-bottom: 1.625rem;
+
+    .destination-img {
+      animation-name: rotate;
+      animation-duration: 20s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+
+      @keyframes rotate {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+
+  .column-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .select-options {
+      margin-bottom: 1.25rem;
+      gap: 1.625rem;
+      color: variables.$neutral;
+
+      .option {
+        width: auto;
+        height: 1.75rem;
+
+        label {
+          position: static;
+          @include variables.barlow-c(0.875, 400, 1.2);
+          letter-spacing: 0.14765625rem;
+          text-transform: uppercase;
+          transform: none;
+        }
+
+        input[type="radio"] {
+          position: absolute;
+          bottom: 0;
+          height: auto;
+          background: none;
+          border-radius: 0;
+        }
+
+        &:hover input[type="radio"]:not(:checked) {
+          border-bottom: 3px solid white;
+          opacity: 50%;
+        }
+
+        input[type="radio"]:checked {
+          border-bottom: 3px solid white;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .destination {
+    padding: 8.5rem 2.4rem 3.625rem;
+    background-image: url(../../../assets/destination/background-destination-tablet.jpg);
+
+    .column-1 {
+      width: 40%;
+      margin-bottom: 3.3125rem;
+    }
+
+    .column-2 {
+      padding: 0 4.625rem;
+
+      .select-options {
+        margin-bottom: 2rem;
+        gap: 2.25rem;
+
+        .option {
+          height: 2.125rem;
+
+          label {
+            @include variables.barlow-c(1, 400, 1.2);
+            letter-spacing: 0.16875rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .destination {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    -ms-grid-rows: auto;
+    grid-auto-rows: auto;
+    grid-template-areas:
+      "a a"
+      "b c";
+    padding: 13.25rem 10.375rem 7.375rem;
+    gap: 4rem 10rem;
+
+    background-image: url(../../../assets/destination/background-destination-desktop.jpg);
+
+    .column-1 {
+      align-self: flex-end;
+      grid-area: b;
+      width: 100%;
+      margin-bottom: 0;
+      margin-left: 4rem;
+    }
+
+    .column-2 {
+      grid-area: c;
+      align-items: flex-start;
+      padding: 0;
+
+      .select-options {
+        margin-bottom: 2.3125rem;
+      }
+    }
+  }
 }

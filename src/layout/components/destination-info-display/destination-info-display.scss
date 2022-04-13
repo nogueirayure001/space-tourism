@@ -1,0 +1,103 @@
+@use "../../../variables.scss";
+
+.destination-info {
+  color: variables.$neutral;
+  text-align: center;
+
+  .about {
+    position: relative;
+    margin-bottom: 4.0625rem;
+
+    .section-title {
+      @include variables.bellefair(3.5, 400, 1.15);
+      text-transform: uppercase;
+    }
+
+    .description {
+      @include variables.barlow(0.9375, 400, 1.667);
+      color: variables.$secondary;
+    }
+
+    &::after {
+      position: absolute;
+      bottom: -2rem;
+      left: 0;
+      content: " ";
+      width: 100%;
+      border-bottom: 1px solid variables.$details;
+    }
+  }
+
+  .stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    .stat-item {
+      .stat-title {
+        margin-bottom: 0.75rem;
+        @include variables.barlow-c(0.875, 400, 1.2);
+        letter-spacing: 0.1475rem;
+        color: variables.$secondary;
+      }
+
+      .stat-value {
+        @include variables.bellefair(1.75, 400, 1.15);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .destination-info {
+    .about {
+      margin-bottom: 4.875rem;
+
+      .section-title {
+        @include variables.bellefair(5, 400, 1.15);
+      }
+
+      .description {
+        @include variables.barlow(1, 400, 1.75);
+      }
+
+      &::after {
+        bottom: -3.125rem;
+      }
+    }
+
+    .stats {
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .destination-info {
+    text-align: left;
+
+    .about {
+      margin-bottom: 5.1875rem;
+
+      .section-title {
+        @include variables.bellefair(6.25, 400, 1.15);
+      }
+
+      .description {
+        @include variables.barlow(1.125, 400, 1.778);
+      }
+
+      &::after {
+        bottom: -3.375rem;
+      }
+    }
+
+    .stats {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+  }
+}
