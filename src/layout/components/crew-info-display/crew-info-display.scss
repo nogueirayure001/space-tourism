@@ -1,0 +1,63 @@
+@use "../../../variables.scss";
+
+.crew-info {
+  color: variables.$neutral;
+  text-align: center;
+
+  .role {
+    margin-bottom: 0.5rem;
+    @include variables.bellefair(1, 400, 1.125);
+    text-transform: uppercase;
+    opacity: 50%;
+  }
+
+  .name {
+    margin-bottom: 1rem;
+    @include variables.bellefair(1.5, 400, 1.167);
+    text-transform: uppercase;
+  }
+
+  .bio {
+    @include variables.barlow(0.9375, 400, 1.667);
+    color: variables.$secondary;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .crew-info {
+    margin-bottom: 2.5rem;
+
+    .role {
+      @include variables.bellefair(1.5, 400, 1.15);
+    }
+
+    .name {
+      @include variables.bellefair(2.5, 400, 1.15);
+    }
+
+    .bio {
+      @include variables.barlow(1, 400, 1.75);
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .crew-info {
+    margin-bottom: 7.5rem;
+    text-align: left;
+
+    .role {
+      margin-bottom: 1rem;
+      @include variables.bellefair(2, 400, 1.15);
+    }
+
+    .name {
+      margin-bottom: 1.75rem;
+      @include variables.bellefair(3.5, 400, 1.15);
+    }
+
+    .bio {
+      @include variables.barlow(1.125, 400, 1.778);
+    }
+  }
+}

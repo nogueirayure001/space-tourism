@@ -16,6 +16,8 @@
   .page-title {
     align-self: flex-start;
     margin-bottom: 3.75rem;
+    @include variables.barlow-c(1.25, 400, 1.2);
+    letter-spacing: 0.21125rem;
   }
 }
 
