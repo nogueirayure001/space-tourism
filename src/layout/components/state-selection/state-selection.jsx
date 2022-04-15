@@ -10,12 +10,11 @@ const StateSelection = ({
 }) => {
   return (
     <fieldset className={`${extraClass ? extraClass : ""} state-selection`}>
-      {items.map(({ value }) => (
+      {items.map(({ value, displayName }) => (
         <div
           className={`${itemExtraClass ? itemExtraClass : ""} selection-item`}
           key={value}
         >
-          <label htmlFor={value}>{value}</label>
           <input
             type='radio'
             id={value}
@@ -24,6 +23,7 @@ const StateSelection = ({
             checked={active === value}
             onChange={handleChange}
           />
+          <label htmlFor={value}>{displayName || value}</label>
         </div>
       ))}
     </fieldset>

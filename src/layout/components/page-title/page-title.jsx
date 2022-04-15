@@ -1,8 +1,8 @@
 import "./page-title.scss";
 
-const PageTitle = ({ number, title }) => {
+const PageTitle = ({ number, title, extraClass }) => {
   return (
-    <h1 className='page-title'>
+    <h1 className={`${extraClass ? extraClass : ""} page-title`}>
       <span className='title-number'>{number}</span>
       {title}
     </h1>

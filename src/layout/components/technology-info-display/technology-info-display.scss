@@ -1,0 +1,68 @@
+@use "../../../variables.scss";
+
+.tech-info {
+  color: variables.$neutral;
+  text-align: center;
+  padding: 0 1.5rem;
+
+  .title {
+    margin-bottom: 1rem;
+    @include variables.barlow-c(0.875, 400, 1.2);
+    text-transform: uppercase;
+    color: variables.$secondary;
+    letter-spacing: 0.14765625rem;
+
+    .main-term {
+      margin-top: 0.5625rem;
+      @include variables.bellefair(1.5, 400, 1.15);
+      color: variables.$neutral;
+      letter-spacing: normal;
+    }
+  }
+
+  .description {
+    @include variables.barlow(0.9375, 400, 1.667);
+    color: variables.$secondary;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .tech-info {
+    padding: 0 1.5rem;
+
+    .title {
+      @include variables.barlow-c(1, 400, 1.1875);
+      letter-spacing: 0.16875rem;
+
+      .main-term {
+        margin-top: 1rem;
+        @include variables.bellefair(2.5, 400, 1.15);
+      }
+    }
+
+    .description {
+      @include variables.barlow(1, 400, 1.75);
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .tech-info {
+    text-align: left;
+    padding: 0;
+
+    .title {
+      @include variables.barlow-c(1, 400, 1.1875);
+      letter-spacing: 0.16875rem;
+
+      .main-term {
+        margin-top: 0.6875rem;
+        @include variables.bellefair(3.5, 400, 1.15);
+      }
+    }
+
+    .description {
+      @include variables.barlow(1.125, 400, 1.778);
+    }
+  }
+}

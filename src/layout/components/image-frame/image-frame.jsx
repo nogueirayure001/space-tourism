@@ -1,11 +1,10 @@
 import "./image-frame.scss";
-import "../../../assets/destination/image-moon.webp";
 
 const ImageFrame = ({ name, images, extraClass }) => {
   return (
-    <div className={`${extraClass ? extraClass : null} image-frame`}>
+    <div className={`${extraClass ? extraClass : ""} image-frame`}>
       <picture>
-        {images.svg === null ? (
+        {images.svg ? (
           <source
             type='image/svg+xml'
             srcSet={require("../../../" + images.svg)}
@@ -19,11 +18,22 @@ const ImageFrame = ({ name, images, extraClass }) => {
           />
         ) : null}
 
-        <img
-          className='image'
-          src={require("../../../" + images.png)}
-          alt={name}
-        />
+        {images.png ? (
+          <source
+            className='image'
+            src={require("../../../" + images.png)}
+            alt={name}
+          />
+        ) : null}
+
+        {images.jpg ? (
+          <source
+            type='image/jpeg'
+            srcSet={require("../../../" + images.jpg)}
+          />
+        ) : null}
+
+        <img className='image' src='' alt={name} />
       </picture>
     </div>
   );

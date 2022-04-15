@@ -1,0 +1,135 @@
+@use "../../../variables.scss";
+
+.technology {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 5.5rem 0 3.625rem;
+  background-image: url(../../../assets/technology/background-technology-mobile.jpg);
+  @include variables.image-background;
+
+  .column-1 {
+    width: 100%;
+    margin-bottom: 2.125rem;
+  }
+
+  .column-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 28.625rem;
+
+    .select-options {
+      margin-bottom: 1.625rem;
+      gap: 1rem;
+
+      .option {
+        width: 2.5rem;
+        height: 2.5rem;
+
+        label {
+          @include variables.bellefair(1, 400, 1.2);
+          color: variables.$neutral;
+        }
+
+        input[type="radio"] {
+          border: 1px solid variables.$neutral;
+          background-color: transparent;
+          opacity: 25%;
+        }
+
+        &:hover input[type="radio"]:not(:checked) {
+          opacity: 50%;
+        }
+
+        input[type="radio"]:checked {
+          opacity: 100%;
+          background-color: variables.$neutral;
+
+          & + label {
+            color: variables.$primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .technology {
+    padding: 8.5rem 0 6.125rem;
+    background-image: url(../../../assets/technology//background-technology-tablet.jpg);
+
+    .tech-page-title {
+      margin-left: 2.40625rem;
+    }
+
+    .column-1 {
+      margin-bottom: 3.5rem;
+    }
+
+    .column-2 {
+      .select-options {
+        margin-bottom: 2.75rem;
+
+        .option {
+          width: 3.75rem;
+          height: 3.75rem;
+
+          label {
+            @include variables.bellefair(1.5, 400, 1.2);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .technology {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: repeat(1.22fr, 1fr);
+    grid-template-columns: repeat(1.22fr, 1fr);
+    -ms-grid-rows: auto;
+    grid-auto-rows: auto;
+    grid-template-areas:
+      "a a"
+      "b c";
+    padding: 13.25rem 0 6.3125rem 10.375rem;
+    gap: 1.625rem 8.125rem;
+    background-image: url(../../../assets/technology/background-technology-desktop.jpg);
+
+    .tech-page-title {
+      margin-left: 0;
+    }
+
+    .column-1 {
+      grid-area: c;
+      margin-bottom: 0;
+    }
+
+    .column-2 {
+      grid-area: b;
+      align-self: center;
+      flex-direction: row;
+      gap: 5rem;
+      max-width: 39.375rem;
+
+      .select-options {
+        flex-direction: column;
+        margin-bottom: 0;
+
+        .option {
+          width: 5rem;
+          height: 5rem;
+
+          label {
+            @include variables.bellefair(1.5, 400, 1.2);
+          }
+        }
+      }
+    }
+  }
+}
