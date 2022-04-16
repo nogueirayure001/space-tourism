@@ -6,7 +6,7 @@ import "./home.scss";
 
 const Home = () => {
   const page = useContext(PageContext);
-  useEffect(() => page.setPageName("Home"), []);
+  useEffect(() => page.setPageName("Home"), [page]);
   const navigate = useNavigate();
 
   const handleClick = () => {

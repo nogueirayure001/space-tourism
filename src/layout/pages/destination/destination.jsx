@@ -15,7 +15,7 @@ const destinationItems = [
 
 const Destination = () => {
   const page = useContext(PageContext);
-  useEffect(() => page.setPageName("Destination"), []);
+  useEffect(() => page.setPageName("Destination"), [page]);
 
   const pageData = useContext(DataContext);
   const destinations = pageData.destinations;

@@ -15,7 +15,7 @@ const crewItems = [
 
 const Crew = () => {
   const page = useContext(PageContext);
-  useEffect(() => page.setPageName("Crew"), []);
+  useEffect(() => page.setPageName("Crew"), [page]);
 
   const pageData = useContext(DataContext);
   const crew = pageData.crew;
