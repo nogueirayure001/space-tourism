@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect, useRef } from "react";
-import { PageContext } from "../../../contexts";
+import { PageContext } from "../../../contexts/page-context";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/shared/logo.svg";
 import openMenuIcon from "../../../assets/shared/icon-hamburger.svg";

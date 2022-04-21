@@ -1,6 +1,6 @@
 import { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { PageContext } from "../../../contexts";
+import { PageContext } from "../../../contexts/page-context";
 import Button from "../../components/button/button";
 import "./home.scss";
 

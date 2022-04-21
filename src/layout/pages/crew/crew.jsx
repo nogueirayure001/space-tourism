@@ -1,5 +1,6 @@
 import { useEffect, useContext, useState } from "react";
-import { PageContext, DataContext } from "../../../contexts";
+import { DataContext } from "../../../contexts/data-context";
+import { PageContext } from "../../../contexts/page-context";
 import CrewInfoDisplay from "../../components/crew-info-display/crew-info-display";
 import ImageFrame from "../../components/image-frame/image-frame";
 import PageTitle from "../../components/page-title/page-title";

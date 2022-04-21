@@ -1,29 +1,22 @@
-import { useState } from "react";
-import { PageContext, DataContext } from "../contexts";
+import { PageProvider } from "../contexts/page-context";
+import { DataProvider } from "../contexts/data-context";
 import { Outlet } from "react-router-dom";
 import Header from "./components/header/header";
-import data from "../data.json";
 import "./layout.scss";
 
 const Layout = () => {
-  const [activePage, setActivePage] = useState(null);
-  const context = {
-    name: activePage,
-    setPageName: setActivePage,
-  };
-
   return (
-    <PageContext.Provider value={context}>
+    <PageProvider>
       <div className='layout'>
         <Header />
 
-        <DataContext.Provider value={data}>
-          <div className='content'>
+        <div className='content'>
+          <DataProvider>
             <Outlet />
-          </div>
-        </DataContext.Provider>
+          </DataProvider>
+        </div>
       </div>
-    </PageContext.Provider>
+    </PageProvider>
   );
 };
 
