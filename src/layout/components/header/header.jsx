@@ -1,5 +1,6 @@
-import { useState, useContext, useEffect, useRef } from "react";
+import { useState, useContext, useRef } from "react";
 import { PageContext } from "../../../contexts/page-context";
+import { useHideOnClickOutside } from "../../../custom-hooks/use-hide-on-click-outside";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/shared/logo.svg";
 import openMenuIcon from "../../../assets/shared/icon-hamburger.svg";
@@ -9,21 +10,16 @@ import Button from "../button/button";
 import "./header.scss";
 
 const Header = () => {
-  const [isMenuOpen, setMenuVisibility] = useState(false);
-  const page = useContext(PageContext);
+  const menuVisibilityState = useState(false);
+  const [isMenuOpen, setMenuVisibility] = menuVisibilityState;
   const menu = useRef(null);
+  useHideOnClickOutside(menu, menuVisibilityState, true);
 
-  const handleClickOutside = (e) => {
-    if (!menu.current.contains(e.target) && isMenuOpen) {
-      setMenuVisibility(false);
-    }
+  const page = useContext(PageContext);
+
+  const handleClick = () => {
+    setMenuVisibility(!isMenuOpen);
   };
-
-  useEffect(() => {
-    window.addEventListener("click", handleClickOutside);
-
-    return () => window.removeEventListener("click", handleClickOutside);
-  });
 
   const logoStyle = { backgroundImage: `url(${logo})` };
   const openMenuStyle = { backgroundImage: `url(${openMenuIcon})` };
@@ -46,10 +42,6 @@ const Header = () => {
       </Link>
     );
   });
-
-  const handleClick = () => {
-    setMenuVisibility(!isMenuOpen);
-  };
 
   return (
     <header className='header'>

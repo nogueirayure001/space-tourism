@@ -1,6 +1,6 @@
-import { useEffect, useContext, useState } from "react";
-import { DataContext } from "../../../contexts/data-context";
-import { PageContext } from "../../../contexts/page-context";
+import { useMonitorPageWidth } from "../../../custom-hooks/use-monitor-page-width";
+import { usePageContext } from "../../../custom-hooks/use-page-context";
+import { usePageData } from "../../../custom-hooks/use-page-data";
 import ImageFrame from "../../components/image-frame/image-frame";
 import PageTitle from "../../components/page-title/page-title";
 import StateSelection from "../../components/state-selection/state-selection";
@@ -14,36 +14,18 @@ const techItems = [
 ];
 
 const Technology = () => {
-  const page = useContext(PageContext);
-  useEffect(() => page.setPageName("Technology"), [page]);
+  usePageContext("Technology");
 
-  const pageData = useContext(DataContext);
-  const tech = pageData.technology;
+  const { activeTab, activeTabInfo, setActiveTab } = usePageData("technology");
 
-  const [activeTech, setActiveTech] = useState(tech[0].name || null);
-
-  const [isDesktopSize, setIsDesktopSize] = useState(window.innerWidth >= 1200);
-  useEffect(() => {
-    window.addEventListener("resize", () =>
-      setIsDesktopSize(window.innerWidth >= 1200)
-    );
-
-    return () =>
-      window.removeEventListener("resize", () =>
-        setIsDesktopSize(window.innerWidth >= 1200)
-      );
-  }, []);
-
-  const [activeTechInfo] = tech.filter(
-    (techItem) => techItem.name === activeTech
-  );
+  const breachesThreshold = useMonitorPageWidth(1200);
 
   const images = {
-    jpg: activeTechInfo.images[isDesktopSize ? "portrait" : "landscape"],
+    jpg: activeTabInfo.images[breachesThreshold ? "portrait" : "landscape"],
   };
 
   const handleChange = (e) => {
-    setActiveTech(e.target.value);
+    setActiveTab(e.target.value);
   };
 
   return (
@@ -55,20 +37,20 @@ const Technology = () => {
       />
 
       <div className='column-1'>
-        <ImageFrame extraClass='tech-img' name={activeTech} images={images} />
+        <ImageFrame extraClass='tech-img' name={activeTab} images={images} />
       </div>
 
       <div className='column-2'>
         <StateSelection
           items={techItems}
           fieldName='tech'
-          active={activeTech}
+          active={activeTab}
           handleChange={handleChange}
           extraClass='select-options'
           itemExtraClass='option'
         />
 
-        <TechInfoDisplay {...activeTechInfo} />
+        <TechInfoDisplay {...activeTabInfo} />
       </div>
     </main>
   );

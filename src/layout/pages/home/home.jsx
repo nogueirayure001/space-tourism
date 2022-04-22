@@ -1,12 +1,11 @@
-import { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { PageContext } from "../../../contexts/page-context";
+import { usePageContext } from "../../../custom-hooks/use-page-context";
 import Button from "../../components/button/button";
 import "./home.scss";
 
 const Home = () => {
-  const page = useContext(PageContext);
-  useEffect(() => page.setPageName("Home"), [page]);
+  usePageContext("Home");
+
   const navigate = useNavigate();
 
   const handleClick = () => {

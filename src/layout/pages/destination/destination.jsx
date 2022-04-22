@@ -1,6 +1,5 @@
-import { useEffect, useContext, useState } from "react";
-import { DataContext } from "../../../contexts/data-context";
-import { PageContext } from "../../../contexts/page-context";
+import { usePageContext } from "../../../custom-hooks/use-page-context";
+import { usePageData } from "../../../custom-hooks/use-page-data";
 import DestinationInfoDisplay from "../../components/destination-info-display/destination-info-display";
 import ImageFrame from "../../components/image-frame/image-frame";
 import PageTitle from "../../components/page-title/page-title";
@@ -15,20 +14,13 @@ const destinationItems = [
 ];
 
 const Destination = () => {
-  const page = useContext(PageContext);
-  useEffect(() => page.setPageName("Destination"), [page]);
+  usePageContext("Destination");
 
-  const pageData = useContext(DataContext);
-  const destinations = pageData.destinations;
-
-  const [activeDest, setActiveDest] = useState(destinations[0].name || null);
-
-  const [activeDestInfo] = destinations.filter(
-    (destination) => destination.name === activeDest
-  );
+  const { activeTab, activeTabInfo, setActiveTab } =
+    usePageData("destinations");
 
   const handleChange = (e) => {
-    setActiveDest(e.target.value);
+    setActiveTab(e.target.value);
   };
 
   return (
@@ -36,20 +28,20 @@ const Destination = () => {
       <PageTitle number='01' title='PICK YOUR DESTINATION' />
 
       <div className='column-1'>
-        <ImageFrame extraClass='destination-img' {...activeDestInfo} />
+        <ImageFrame extraClass='destination-img' {...activeTabInfo} />
       </div>
 
       <div className='column-2'>
         <StateSelection
           items={destinationItems}
           fieldName='destination'
-          active={activeDest}
+          active={activeTab}
           handleChange={handleChange}
           extraClass='select-options'
           itemExtraClass='option'
         />
 
-        <DestinationInfoDisplay {...activeDestInfo} />
+        <DestinationInfoDisplay {...activeTabInfo} />
       </div>
     </main>
   );

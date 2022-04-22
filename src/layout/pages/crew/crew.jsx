@@ -1,6 +1,5 @@
-import { useEffect, useContext, useState } from "react";
-import { DataContext } from "../../../contexts/data-context";
-import { PageContext } from "../../../contexts/page-context";
+import { usePageContext } from "../../../custom-hooks/use-page-context";
+import { usePageData } from "../../../custom-hooks/use-page-data";
 import CrewInfoDisplay from "../../components/crew-info-display/crew-info-display";
 import ImageFrame from "../../components/image-frame/image-frame";
 import PageTitle from "../../components/page-title/page-title";
@@ -15,20 +14,12 @@ const crewItems = [
 ];
 
 const Crew = () => {
-  const page = useContext(PageContext);
-  useEffect(() => page.setPageName("Crew"), [page]);
+  usePageContext("Crew");
 
-  const pageData = useContext(DataContext);
-  const crew = pageData.crew;
-
-  const [activeCrew, setActiveCrew] = useState(crew[0].name || null);
-
-  const [activeCrewInfo] = crew.filter(
-    (crewMember) => crewMember.name === activeCrew
-  );
+  const { activeTab, activeTabInfo, setActiveTab } = usePageData("crew");
 
   const handleChange = (e) => {
-    setActiveCrew(e.target.value);
+    setActiveTab(e.target.value);
   };
 
   return (
@@ -36,20 +27,20 @@ const Crew = () => {
       <PageTitle number='02' title='MEET YOUR CREW' />
 
       <div className='column-1'>
-        <ImageFrame extraClass='crew-img' {...activeCrewInfo} />
+        <ImageFrame extraClass='crew-img' {...activeTabInfo} />
       </div>
 
       <div className='column-2'>
         <StateSelection
           items={crewItems}
           fieldName='crew'
-          active={activeCrew}
+          active={activeTab}
           handleChange={handleChange}
           extraClass='select-options'
           itemExtraClass='option'
         />
 
-        <CrewInfoDisplay {...activeCrewInfo} />
+        <CrewInfoDisplay {...activeTabInfo} />
       </div>
     </main>
   );
