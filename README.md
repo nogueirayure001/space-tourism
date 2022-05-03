@@ -1,70 +1,98 @@
-# Getting Started with Create React App
+# Wanna travel to space?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A multi-page website about space tourism.
+Frontend challeng by [Frontend Mentor](https://www.frontendmentor.io).
 
-## Available Scripts
+## Project Description
 
-In the project directory, you can run:
+The multipage website was built as an SPA (Single Page Application) with react functional approach using hooks, react-router v6 for the routing betweem views, and Sass for styling of the components.
 
-### `npm start`
+## Instructions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Clone the repository
+- Run the following command to install the required dependencies
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+npm update
+```
 
-### `npm test`
+- Run the following command to get a local version of the app
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+npm start
+```
 
-### `npm run build`
+The app can be accessed at [http://localhost:3000](http://localhost:3000)
 
-Builds the app for production to the `build` folder.\
+- Use the following command to bundle the app
+
+```
+npm run build
+```
+
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Live version
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The app can also be acessed at its [live version URL](https://space-travel101.netlify.app/destination)
 
-### `npm run eject`
+## Concepts learned
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Using state, context, after effects and custom hooks.
+- How to abstract away context related code and make it reusable.
+- How to abstract away similar hooks code in custom hooks and make it reusable.
+- Define repeated code as variables or mixins in a unique scss file and reuse it in component specific styles.
+- Refactor the code to make it cleaner and easier to read.
+- Advantages of react functional programming relative to class components.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## How to use
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Navigation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+All views of the website will present a navigation menu. On mobile devices, a clickable menu icon will show the navigation menu. On tablets and desktop the menu will be exposed.
+The website logo is clickable and will redirect the user to the homepage.
 
-## Learn More
+### Homepage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Upon website loading at their browser, the homepage will present a section with what the website is all about and a button that will redirect the user to the destination section to start exploring the content.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Destination
 
-### Code Splitting
+Presents information about the destination selected. The default destination is "Moon", being the other three "Mars", "Europa" and "Titan".
+The information presented are:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Description
+- Average distance
+- Estimated travel time
+- A picture of the destination
 
-### Analyzing the Bundle Size
+### Crew
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Presents information about the flight crew member selected amongst the options available.
 
-### Making a Progressive Web App
+### Technology
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Presents information about the technology selected amonst the options available.
 
-### Advanced Configuration
+## Screenshots
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### mobile
 
-### Deployment
+![](./screenshots/homepage-desktop.png)
+![](./screenshots/destination-desktop.png)
+![](./screenshots/crew-desktop.png)
+![](./screenshots/technology-desktop.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Tablet
 
-### `npm run build` fails to minify
+![](./screenshots/homepage-tablet.png)
+![](./screenshots/destination-tablet.png)
+![](./screenshots/crew-tablet.png)
+![](./screenshots/technology-tablet.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Desktop
+
+![](./screenshots/homepage-mobile.jpg)
+![](./screenshots/destination-mobile.jpg)
+![](./screenshots/crew-mobile.jpg)
+![](./screenshots/technology-mobile.jpg)
