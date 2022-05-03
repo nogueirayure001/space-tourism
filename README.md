@@ -1,7 +1,7 @@
 # Wanna travel to space?
 
 A multi-page website about space tourism.
-Frontend challeng by [Frontend Mentor](https://www.frontendmentor.io).
+Frontend challenge by [Frontend Mentor](https://www.frontendmentor.io).
 
 ## Project Description
 
@@ -34,7 +34,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 ## Live version
 
-The app can also be acessed at its [live version URL](https://space-travel101.netlify.app/destination)
+The app can also be acessed at its [live version URL](https://space-travel101.netlify.app/)
 
 ## Concepts learned
 
@@ -76,12 +76,12 @@ Presents information about the technology selected amonst the options available.
 
 ## Screenshots
 
-### mobile
+### Mobile
 
-![](./screenshots/homepage-desktop.png)
-![](./screenshots/destination-desktop.png)
-![](./screenshots/crew-desktop.png)
-![](./screenshots/technology-desktop.png)
+![](./screenshots/homepage-mobile.jpg)
+![](./screenshots/destination-mobile.jpg)
+![](./screenshots/crew-mobile.jpg)
+![](./screenshots/technology-mobile.jpg)
 
 ### Tablet
 
@@ -92,7 +92,7 @@ Presents information about the technology selected amonst the options available.
 
 ### Desktop
 
-![](./screenshots/homepage-mobile.jpg)
-![](./screenshots/destination-mobile.jpg)
-![](./screenshots/crew-mobile.jpg)
-![](./screenshots/technology-mobile.jpg)
+![](./screenshots/homepage-desktop.png)
+![](./screenshots/destination-desktop.png)
+![](./screenshots/crew-desktop.png)
+![](./screenshots/technology-desktop.png)
