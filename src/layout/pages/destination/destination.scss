@@ -55,12 +55,15 @@
           height: auto;
           background: none;
           border-radius: 0;
+          border: none;
         }
 
-        &:hover input[type="radio"]:not(:checked) {
-          border-bottom: 3px solid white;
-          opacity: 50%;
-        }
+        &:hover {
+          input[type="radio"]:not(:checked) {
+            border-bottom: 3px solid white;
+            opacity: 50%;
+          } 
+        } 
 
         input[type="radio"]:checked {
           border-bottom: 3px solid white;
